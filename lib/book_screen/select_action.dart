@@ -1,6 +1,7 @@
 import 'package:best_flutter_ui_templates/book_screen/book_screen.dart';
 import 'package:best_flutter_ui_templates/book_screen/page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:page_turn/page_turn.dart';
 
 class SelectAtionScreen extends StatefulWidget {
@@ -9,6 +10,16 @@ class SelectAtionScreen extends StatefulWidget {
 }
 
 class _SelectAtionScreenState extends State<SelectAtionScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
