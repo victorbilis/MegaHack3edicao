@@ -1,6 +1,8 @@
+import 'package:best_flutter_ui_templates/book_screen/select_action.dart';
 import 'package:best_flutter_ui_templates/design_course/tutorial.dart';
 import 'package:flutter/material.dart';
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
+import 'package:flutter/services.dart';
 
 class CourseInfoScreen extends StatefulWidget {
   @override
@@ -15,6 +17,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
   double opacity1 = 0.0;
   double opacity2 = 0.0;
   double opacity3 = 0.0;
+
   @override
   void initState() {
     animationController = AnimationController(
@@ -291,7 +294,8 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
     Navigator.push<dynamic>(
       context,
       MaterialPageRoute<dynamic>(
-        builder: (BuildContext context) => Tutorial(),
+       // builder: (BuildContext context) => Tutorial(),
+       builder: (BuildContext context) => SelectAtionScreen(),
       ),
     );
   }
