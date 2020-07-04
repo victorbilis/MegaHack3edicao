@@ -24,7 +24,7 @@ class _BookScreenState extends State<BookScreen> {
               key: _controller,
               backgroundColor: Colors.white,
               showDragCutoff: false,
-              duration: Duration(seconds: 1),
+              // duration: Duration(seconds: 1),
               lastPage: Container(child: Center(child: Text('Last Page!'))),
               children: <Widget>[
                 for (var i = 0; i < 20; i++)
