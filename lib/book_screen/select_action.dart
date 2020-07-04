@@ -1,3 +1,4 @@
+import 'package:best_flutter_ui_templates/book_screen/book_screen.dart';
 import 'package:best_flutter_ui_templates/book_screen/page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_turn/page_turn.dart';
@@ -84,28 +85,34 @@ class _SelectAtionScreenState extends State<SelectAtionScreen> {
                     ),
                   ),
                 ),
-                Container(
-                  width: 150,
-                  height: 150,
-                  margin: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0XFF55C9C8),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/comecar_select_action.png',
-                          width: 50,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Center(child: Text('COMEÇAR'))
-                      ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BookScreen()));
+                  },
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    margin: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0XFF55C9C8),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/comecar_select_action.png',
+                            width: 50,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Center(child: Text('COMEÇAR'))
+                        ],
+                      ),
                     ),
                   ),
                 ),
