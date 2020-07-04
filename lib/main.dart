@@ -10,31 +10,32 @@ import 'navigation_home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown
-  ]).then((_) => runApp(MyApp()));
+  // await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown
+  // ]).then((_) => runApp(MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-      statusBarBrightness:
-          Platform.isAndroid ? Brightness.dark : Brightness.light,
-      systemNavigationBarColor: Colors.white,
-      systemNavigationBarDividerColor: Colors.grey,
-      systemNavigationBarIconBrightness: Brightness.dark,
-    ));
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //   statusBarColor: Colors.transparent,
+    //   statusBarIconBrightness: Brightness.dark,
+    //   statusBarBrightness:
+    //       Platform.isAndroid ? Brightness.dark : Brightness.light,
+    //   systemNavigationBarColor: Colors.white,
+    //   systemNavigationBarDividerColor: Colors.grey,
+    //   systemNavigationBarIconBrightness: Brightness.dark,
+    // ));
     return MaterialApp(
       title: 'Flutter UI',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         textTheme: AppTheme.textTheme,
-        platform: TargetPlatform.iOS,
+        // platform: TargetPlatform.iOS,
       ),
       // home: DesignCourseHomeScreen(),
       // home: LoginAppScreen(),
