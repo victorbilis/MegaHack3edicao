@@ -20,10 +20,13 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
       color: DesignCourseAppTheme.nearlyWhite,
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Column(
+        body: Stack(
           children: <Widget>[
             SizedBox(
               height: MediaQuery.of(context).padding.top,
+            ),
+             Container(
+              child:Image.asset('assets/background.png'),
             ),
             Expanded(
               child: SingleChildScrollView(
@@ -39,6 +42,7 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
                 ),
               ),
             ),
+           
           ],
         ),
       ),
@@ -295,6 +299,16 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
                     ),
                   ),
                 ),
+              )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Esqueceu sua senha?',style: TextStyle(color: Color(0XFFa3a3a3)))
               )
             ],
           )
