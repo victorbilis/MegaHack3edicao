@@ -1,5 +1,6 @@
 import 'package:best_flutter_ui_templates/design_course/category_list_view.dart';
 import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
+import 'package:best_flutter_ui_templates/design_course/perfil.dart';
 import 'package:best_flutter_ui_templates/design_course/popular_course_list_view.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
@@ -452,10 +453,31 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
               ],
             ),
           ),
-          Container(
-            width: 60,
-            height: 60,
-            //child: Image.asset('assets/design_course/userImage.png'),
+          InkWell(
+            splashColor: Colors.white24,
+                  onTap: () {
+                    setState(() {
+                      Navigator.push<dynamic>(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) => PerfilScreen(),
+                        ),
+                      );
+                    });
+                  },
+            child: Container(
+              width: 60,
+              height: 60,
+              child: Image.asset('assets/design_course/perfil.png'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Container(
+              width: 60,
+              height: 60,
+              child: Text('600 pontos',style: TextStyle(fontWeight: FontWeight.bold),),
+            ),
           )
         ],
       ),

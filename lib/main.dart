@@ -7,7 +7,6 @@ import 'package:best_flutter_ui_templates/design_course/login_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:best_flutter_ui_templates/design_course/home_design_course.dart';
-import 'navigation_home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
