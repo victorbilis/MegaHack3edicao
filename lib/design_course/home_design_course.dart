@@ -27,6 +27,21 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                 height: MediaQuery.of(context).padding.top,
               ),
               getAppBarUI(),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      width: 200,
+                      height: 30,
+                      child: Text(
+                        '600 pontos',
+                        style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               getSearchBarUI(),
               getCategoryUI(),
               (categoryType == CategoryType.ui)
@@ -91,187 +106,59 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
   Widget getTrilha() {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
+        padding: const EdgeInsets.only(top: 8.0, left: 0, right: 0),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Center(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10),
               child: Container(
-                width: 150,
-                height: 150,
+                height: 70,
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0XFF55C9C8),
-                    image: DecorationImage(
-                        image: AssetImage('assets/duck_trilha.png'))),
+                  color: DesignCourseAppTheme.nearlyGreen10,
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                    border:
+                        Border.all(color: DesignCourseAppTheme.nearlyGreen)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset('assets/duck_trilha.png'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('4 patos e uma pata', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                    ),
+                  ],
+                ),
               ),
             ),
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 250,
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Container(
+                height: 70,
+                decoration: BoxDecoration(
+                  color: Color(0XFFc9c9c9),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                    border:
+                        Border.all(color: Color(0XFF9e9e9e))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset('assets/cat_trilha.png'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('4 patos e uma pata', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                    ),
+                  ],
                 ),
-                Transform.rotate(
-                    angle: 4.2,
-                    child: Container(
-                        width: 2, height: 40, color: Colors.blueAccent)),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 180,
-                ),
-                Transform.rotate(
-                    angle: 4,
-                    child: Container(
-                        width: 2, height: 40, color: Colors.blueAccent)),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 60,
-                ),
-                Center(
-                  child: Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0XFF55C9C8),
-                        image: DecorationImage(
-                            image: AssetImage('assets/pig_trilha.png'))),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 60,
-                ),
-                Transform.rotate(
-                    angle: 8.2,
-                    child: Container(
-                        width: 2, height: 40, color: Colors.blueAccent)),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Transform.rotate(
-                    angle: 8.2,
-                    child: Container(
-                        width: 2, height: 40, color: Colors.blueAccent)),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  width: 180,
-                ),
-                Transform.rotate(
-                    angle: 8.3,
-                    child: Container(
-                        width: 2, height: 40, color: Colors.blueAccent)),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Center(
-                  child: Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0XFF55C9C8),
-                        image: DecorationImage(
-                            image: AssetImage('assets/cow_trilha.png'))),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Center(
-                  child: Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0XFFC4C4C4),
-                        image: DecorationImage(
-                            image:
-                                AssetImage('assets/another_duck_trilha.png'))),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Center(
-                  child: Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0XFFC4C4C4),
-                        image: DecorationImage(
-                            image: AssetImage('assets/fish_trilha.png'))),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Center(
-                  child: Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0XFFC4C4C4),
-                        image: DecorationImage(
-                            image: AssetImage('assets/cat_trilha.png'))),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Center(
-                  child: Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0XFFC4C4C4),
-                        image: DecorationImage(
-                            image: AssetImage('assets/dog_trilha.png'))),
-                  ),
-                ),
-              ],
-            ),
-            /*Text(
-              'Popular Course',
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 22,
-                letterSpacing: 0.27,
-                color: DesignCourseAppTheme.darkerText,
               ),
-            ),*/
-            // Flexible(
-            //   child: PopularCourseListView(
-            //     callBack: () {
-            //       moveTo();
-            //     },
-            //   ),
-            // )
+            ),
           ],
         ),
       ),
@@ -455,30 +342,33 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
           ),
           InkWell(
             splashColor: Colors.white24,
-                  onTap: () {
-                    setState(() {
-                      Navigator.push<dynamic>(
-                        context,
-                        MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) => PerfilScreen(),
-                        ),
-                      );
-                    });
-                  },
+            onTap: () {
+              setState(() {
+                Navigator.push<dynamic>(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                    builder: (BuildContext context) => PerfilScreen(),
+                  ),
+                );
+              });
+            },
             child: Container(
               width: 60,
               height: 60,
               child: Image.asset('assets/design_course/perfil.png'),
             ),
           ),
-          Padding(
+         /* Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Container(
               width: 60,
               height: 60,
-              child: Text('600 pontos',style: TextStyle(fontWeight: FontWeight.bold),),
+              child: Text(
+                '600 pontos',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
-          )
+          )*/
         ],
       ),
     );

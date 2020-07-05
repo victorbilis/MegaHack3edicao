@@ -4,6 +4,7 @@ import 'package:best_flutter_ui_templates/design_course/popular_course_list_view
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
+import 'package:flutter/services.dart';
 
 class FiltrosScreen extends StatefulWidget {
   @override
@@ -14,62 +15,74 @@ class _FiltrosScreenState extends State<FiltrosScreen> {
   CategoryType categoryType = CategoryType.ui;
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       color: DesignCourseAppTheme.nearlyWhite,
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Stack(children: [
-          Column(
-          children: <Widget>[
-            SizedBox(
-              height: MediaQuery.of(context).padding.top,
-            ),
-            getAppBarUI(),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  child: Column(
-                    children: <Widget>[
-                     
-                      getCategoryUI(),
-                      Flexible(
-                        child: (categoryType == CategoryType.ui)
-                            ? getPopularCourseUI()
-                            : getTrilha(),
+          backgroundColor: Colors.transparent,
+          body: Stack(
+            children: [
+              Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: MediaQuery.of(context).padding.top,
+                  ),
+                  getAppBarUI(),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Container(
+                        height: MediaQuery.of(context).size.height,
+                        child: Column(
+                          children: <Widget>[
+                            getCategoryUI(),
+                            Flexible(
+                              child: (categoryType == CategoryType.ui)
+                                  ? getPopularCourseUI()
+                                  : getTrilha(),
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-           
-          ],
-        ),
-        Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-              child: SizedBox(
-                width: AppBar().preferredSize.height,
-                height: AppBar().preferredSize.height,
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    borderRadius:
-                        BorderRadius.circular(AppBar().preferredSize.height),
-                    child: Icon(
-                      Icons.arrow_back_ios,
-                      color: DesignCourseAppTheme.nearlyBlack,
                     ),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
+                  ),
+                ],
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+                child: SizedBox(
+                  width: AppBar().preferredSize.height,
+                  height: AppBar().preferredSize.height,
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius:
+                          BorderRadius.circular(AppBar().preferredSize.height),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: DesignCourseAppTheme.nearlyBlack,
+                      ),
+                      onTap: () {
+                        SystemChrome.setPreferredOrientations([
+                          DeviceOrientation.landscapeRight,
+                          DeviceOrientation.landscapeLeft
+                        ]);
+                        Navigator.pop(context);
+                      },
+                    ),
                   ),
                 ),
               ),
-            ),
-        ],)
-      ),
+            ],
+          )),
     );
   }
 
@@ -115,7 +128,7 @@ class _FiltrosScreenState extends State<FiltrosScreen> {
             ),
           ),
         ),
-         getSearchBarUI(),
+        getSearchBarUI(),
       ],
     );
   }
@@ -306,7 +319,6 @@ class _FiltrosScreenState extends State<FiltrosScreen> {
       padding: const EdgeInsets.only(top: 8.0, left: 18, right: 18),
       child: Row(
         children: <Widget>[
-          
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
