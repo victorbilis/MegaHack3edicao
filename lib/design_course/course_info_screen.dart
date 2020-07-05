@@ -294,8 +294,8 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
     Navigator.push<dynamic>(
       context,
       MaterialPageRoute<dynamic>(
-        builder: (BuildContext context) => Tutorial(),
-      // builder: (BuildContext context) => SelectAtionScreen(),
+       // builder: (BuildContext context) => Tutorial(),
+      builder: (BuildContext context) => SelectAtionScreen(),
       ),
     );
   }

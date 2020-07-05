@@ -1,3 +1,4 @@
+import 'package:best_flutter_ui_templates/design_course/inicioAtividade.dart';
 import 'package:flutter/material.dart';
 
 class FinishedScreen extends StatelessWidget {
@@ -73,7 +74,15 @@ class FinishedScreen extends StatelessWidget {
                               height: 40,
                               margin: EdgeInsets.only(left: 10),
                               child: MaterialButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute<dynamic>(
+                                      builder: (BuildContext context) =>
+                                          InicioAtividade(),
+                                    ),
+                                  );
+                                },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[

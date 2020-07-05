@@ -1,5 +1,7 @@
 import 'package:best_flutter_ui_templates/book_screen/book_screen.dart';
 import 'package:best_flutter_ui_templates/book_screen/page.dart';
+import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
+import 'package:best_flutter_ui_templates/design_course/inicioAtividade.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_turn/page_turn.dart';
@@ -127,36 +129,69 @@ class _SelectAtionScreenState extends State<SelectAtionScreen> {
                     ),
                   ),
                 ),
-                Container(
-                  width: 150,
-                  height: 150,
-                  margin: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0XFFE5E5E5),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/atividade_select_action.png',
-                          width: 50,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Center(child: Text('ATIVIDADE'))
-                      ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => InicioAtividade()));
+                  },
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    margin: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0XFFE5E5E5),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/atividade_select_action.png',
+                            width: 50,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Center(child: Text('ATIVIDADE'))
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ],
             )),
           ),
-        )
+        ),
+        Padding(
+              padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+              child: SizedBox(
+                width: AppBar().preferredSize.height,
+                height: AppBar().preferredSize.height,
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius:
+                        BorderRadius.circular(AppBar().preferredSize.height),
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: DesignCourseAppTheme.nearlyBlack,
+                    ),
+                    onTap: () {
+                      SystemChrome.setPreferredOrientations([
+                        DeviceOrientation.portraitUp,
+                        DeviceOrientation.portraitDown
+                      ]);
+                      Navigator.pop(context);
+
+                    },
+                  ),
+                ),
+              ),
+            )
       ],
+      
     ));
   }
 }

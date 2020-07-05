@@ -3,6 +3,7 @@ import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.
 import 'package:best_flutter_ui_templates/design_course/filtros.dart';
 import 'package:best_flutter_ui_templates/design_course/slides.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InicioAtividade extends StatefulWidget {
   @override
@@ -30,6 +31,10 @@ class _InicioAtividadeState extends State<InicioAtividade> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown
+    ]);
     mySLides = getSlides();
     controller = new PageController();
   }
@@ -63,7 +68,7 @@ class _InicioAtividadeState extends State<InicioAtividade> {
                       children: <Widget>[
                         SlideTile(
                           imagePath: "assets/tutorial3.png",
-                          desc: "Inicie suas ativadades.",
+                          desc: "Inicie suas atividades.",
                         ),
                       ],
                     ),
