@@ -1,4 +1,5 @@
 import 'package:best_flutter_ui_templates/book_screen/add_audios.dart';
+import 'package:best_flutter_ui_templates/book_screen/finished_screen.dart';
 import 'package:best_flutter_ui_templates/book_screen/page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_turn/page_turn.dart';
@@ -40,9 +41,9 @@ class _BookScreenState extends State<BookScreen> {
                 backgroundColor: Colors.white,
                 showDragCutoff: false,
                 // duration: Duration(seconds: 1),
-                lastPage: Container(child: Center(child: Text('Last Page!'))),
+                lastPage: FinishedScreen(),
                 children: <Widget>[
-                  for (var i = 0; i < 20; i++) BookPage(page: i),
+                  for (var i = 0; i < 5; i++) BookPage(page: i),
                 ],
               ),
             ),

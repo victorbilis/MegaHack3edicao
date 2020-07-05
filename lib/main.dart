@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:best_flutter_ui_templates/book_screen/book_screen.dart';
+import 'package:best_flutter_ui_templates/book_screen/finished_screen.dart';
 import 'package:best_flutter_ui_templates/book_screen/select_action.dart';
 import 'package:best_flutter_ui_templates/design_course/login_app.dart';
 import 'package:flutter/material.dart';
@@ -30,18 +31,18 @@ class MyApp extends StatelessWidget {
     //    systemNavigationBarIconBrightness: Brightness.dark,
     //  ));
     return MaterialApp(
-      title: 'Flutter UI',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: AppTheme.textTheme,
-        // platform: TargetPlatform.iOS,
-      ),
-      // home: DesignCourseHomeScreen(),
-      home: LoginAppScreen(),
-      // home: BookScreen(),
-      //home: SelectAtionScreen(),
-    );
+        title: 'Flutter UI',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          textTheme: AppTheme.textTheme,
+          // platform: TargetPlatform.iOS,
+        ),
+        // home: DesignCourseHomeScreen(),
+        home: LoginAppScreen());
+    // home: BookScreen(),
+    //home: SelectAtionScreen(),
+    // home: FinishedScreen());
   }
 }
 
