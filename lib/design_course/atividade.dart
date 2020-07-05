@@ -1,3 +1,4 @@
+import 'package:best_flutter_ui_templates/design_course/atividade_finalizado.dart';
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:best_flutter_ui_templates/design_course/filtros.dart';
 import 'package:best_flutter_ui_templates/design_course/questions.dart';
@@ -36,8 +37,18 @@ class _AtividadeState extends State<Atividade> {
   }
 
   void nextPage() {
-    controller.animateToPage(slideIndex + 1,
-        duration: Duration(milliseconds: 500), curve: Curves.linear);
+    slideIndex++;
+    if (slideIndex == myQuestions.length) {
+      Navigator.push<dynamic>(
+        context,
+        MaterialPageRoute<dynamic>(
+          builder: (BuildContext context) => AtividadeFinalizado(),
+        ),
+      );
+    } else {
+      controller.animateToPage(slideIndex,
+          duration: Duration(milliseconds: 500), curve: Curves.linear);
+    }
   }
 
   @override
@@ -67,17 +78,18 @@ class _AtividadeState extends State<Atividade> {
                         });
                       },
                       children: <Widget>[
-                        for(var i = 0; i < myQuestions.length; i++) QuestionTile(
-                          imageAssetPath: myQuestions[i].getImageAssetPath(),
-                          question: myQuestions[i].getQuestion(),
-                          percent: myQuestions[i].getPercent(),
-                          percentText: myQuestions[i].getPercentText(),
-                          response1: myQuestions[i].getResponse1(),
-                          response2: myQuestions[i].getResponse2(),
-                          response3: myQuestions[i].getResponse3(),
-                          response4: myQuestions[i].getResponse4(),
-                          nextPage: nextPage,
-                        ),
+                        for (var i = 0; i < myQuestions.length; i++)
+                          QuestionTile(
+                            imageAssetPath: myQuestions[i].getImageAssetPath(),
+                            question: myQuestions[i].getQuestion(),
+                            percent: myQuestions[i].getPercent(),
+                            percentText: myQuestions[i].getPercentText(),
+                            response1: myQuestions[i].getResponse1(),
+                            response2: myQuestions[i].getResponse2(),
+                            response3: myQuestions[i].getResponse3(),
+                            response4: myQuestions[i].getResponse4(),
+                            nextPage: nextPage,
+                          ),
                       ],
                     ),
                   ),
@@ -210,6 +222,7 @@ class QuestionTile extends StatelessWidget {
                           splashColor: Colors.white24,
                           onTap: () {
                             // setState(() {});
+                            nextPage();
                           },
                           child: Container(
                             margin: EdgeInsets.all(10),
@@ -243,6 +256,7 @@ class QuestionTile extends StatelessWidget {
                           splashColor: Colors.white24,
                           onTap: () {
                             //setState(() {});
+                            nextPage();
                           },
                           child: Container(
                             margin: EdgeInsets.all(10),
@@ -270,6 +284,7 @@ class QuestionTile extends StatelessWidget {
                           splashColor: Colors.white24,
                           onTap: () {
                             //setState(() {});
+                            nextPage();
                           },
                           child: Container(
                             margin: EdgeInsets.all(10),
