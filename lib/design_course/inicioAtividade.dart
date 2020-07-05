@@ -1,15 +1,15 @@
+import 'package:best_flutter_ui_templates/design_course/atividade.dart';
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:best_flutter_ui_templates/design_course/filtros.dart';
-import 'package:best_flutter_ui_templates/design_course/inicioAtividade.dart';
 import 'package:best_flutter_ui_templates/design_course/slides.dart';
 import 'package:flutter/material.dart';
 
-class Tutorial extends StatefulWidget {
+class InicioAtividade extends StatefulWidget {
   @override
-  _TutorialState createState() => _TutorialState();
+  _InicioAtividadeState createState() => _InicioAtividadeState();
 }
 
-class _TutorialState extends State<Tutorial> {
+class _InicioAtividadeState extends State<InicioAtividade> {
   List<SliderModel> mySLides = new List<SliderModel>();
   int slideIndex = 0;
   PageController controller;
@@ -41,7 +41,7 @@ class _TutorialState extends State<Tutorial> {
           gradient: LinearGradient(
               colors: [const Color(0xff3C8CE7), const Color(0xff00EAFF)])),
       child: Scaffold(
-        backgroundColor: DesignCourseAppTheme.nearlyGreen,
+        backgroundColor: DesignCourseAppTheme.nearlyWhite,
         body: Stack(
           children: <Widget>[
             Column(
@@ -62,15 +62,9 @@ class _TutorialState extends State<Tutorial> {
                       },
                       children: <Widget>[
                         SlideTile(
-                          imagePath: mySLides[0].getImageAssetPath(),
-                          title: mySLides[0].getTitle(),
-                          desc: mySLides[0].getDesc(),
+                          imagePath: "assets/tutorial3.png",
+                          desc: "Inicie suas ativadades.",
                         ),
-                        SlideTile(
-                          imagePath: mySLides[1].getImageAssetPath(),
-                          title: mySLides[1].getTitle(),
-                          desc: mySLides[1].getDesc(),
-                        )
                       ],
                     ),
                   ),
@@ -98,56 +92,12 @@ class _TutorialState extends State<Tutorial> {
             )
           ],
         ),
-        bottomSheet: slideIndex != 1
-            ? Container(
-                margin: EdgeInsets.symmetric(vertical: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    FlatButton(
-                      onPressed: () {
-                        controller.animateToPage(2,
-                            duration: Duration(milliseconds: 400),
-                            curve: Curves.linear);
-                      },
-                      splashColor: Colors.blue[50],
-                      child: Text(
-                        "PULAR",
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                    Container(
-                      child: Row(
-                        children: [
-                          _buildPageIndicator(false),
-                        ],
-                      ),
-                    ),
-                    FlatButton(
-                      onPressed: () {
-                        print("this is slideIndex: $slideIndex");
-                        controller.animateToPage(slideIndex + 1,
-                            duration: Duration(milliseconds: 500),
-                            curve: Curves.linear);
-                      },
-                      splashColor: Colors.blue[50],
-                      child: Text(
-                        "PRÓXIMO",
-                        style: TextStyle(
-                            color: DesignCourseAppTheme.nearlyGreen,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            : InkWell(
+        bottomSheet: InkWell( 
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute<dynamic>(
-                     // builder: (BuildContext context) => FiltrosScreen(),
-                     builder: (BuildContext context) => InicioAtividade(),
+                      builder: (BuildContext context) => Atividade(),
                     ),
                   );
                 },
