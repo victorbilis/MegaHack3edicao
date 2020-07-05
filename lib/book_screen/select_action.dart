@@ -1,6 +1,8 @@
 import 'package:best_flutter_ui_templates/book_screen/book_screen.dart';
+import 'package:best_flutter_ui_templates/book_screen/finished_screen.dart';
 import 'package:best_flutter_ui_templates/book_screen/page.dart';
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
+import 'package:best_flutter_ui_templates/design_course/filtros.dart';
 import 'package:best_flutter_ui_templates/design_course/inicioAtividade.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,14 +14,11 @@ class SelectAtionScreen extends StatefulWidget {
 }
 
 class _SelectAtionScreenState extends State<SelectAtionScreen> {
-
   @override
   void initState() {
     super.initState();
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft
-    ]);
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.landscapeRight, DeviceOrientation.landscapeLeft]);
   }
 
   @override
@@ -46,23 +45,29 @@ class _SelectAtionScreenState extends State<SelectAtionScreen> {
             ),
           ),
         ),
-        Align(
+        /*Align(
           alignment: Alignment.topLeft,
           child: Container(
               width: 100,
               height: 50,
               margin: EdgeInsets.only(top: 10),
               child: Image.asset('assets/duck_select_action.png')),
-        ),
+        ),*/
         Align(
           alignment: Alignment.bottomRight,
-          child: Container(
-              width: 100,
-              height: 50,
-              decoration: BoxDecoration(
-                  color: Color(0XFFFCF4AB), shape: BoxShape.circle),
-              margin: EdgeInsets.only(bottom: 10),
-              child: Image.asset('assets/share_icon.png')),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => FiltrosScreen()));
+            },
+            child: Container(
+                width: 100,
+                height: 50,
+                decoration: BoxDecoration(
+                    color: Color(0XFFFCF4AB), shape: BoxShape.circle),
+                margin: EdgeInsets.only(bottom: 10),
+                child: Image.asset('assets/share_icon.png')),
+          ),
         ),
         Container(
           width: double.maxFinite,
@@ -131,8 +136,10 @@ class _SelectAtionScreenState extends State<SelectAtionScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => InicioAtividade()));
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => InicioAtividade()));
                   },
                   child: Container(
                     width: 150,
@@ -165,33 +172,31 @@ class _SelectAtionScreenState extends State<SelectAtionScreen> {
           ),
         ),
         Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-              child: SizedBox(
-                width: AppBar().preferredSize.height,
-                height: AppBar().preferredSize.height,
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    borderRadius:
-                        BorderRadius.circular(AppBar().preferredSize.height),
-                    child: Icon(
-                      Icons.arrow_back_ios,
-                      color: DesignCourseAppTheme.nearlyBlack,
-                    ),
-                    onTap: () {
-                      SystemChrome.setPreferredOrientations([
-                        DeviceOrientation.portraitUp,
-                        DeviceOrientation.portraitDown
-                      ]);
-                      Navigator.pop(context);
-
-                    },
-                  ),
+          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+          child: SizedBox(
+            width: AppBar().preferredSize.height,
+            height: AppBar().preferredSize.height,
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius:
+                    BorderRadius.circular(AppBar().preferredSize.height),
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  color: DesignCourseAppTheme.nearlyBlack,
                 ),
+                onTap: () {
+                  SystemChrome.setPreferredOrientations([
+                    DeviceOrientation.portraitUp,
+                    DeviceOrientation.portraitDown
+                  ]);
+                  Navigator.pop(context);
+                },
               ),
-            )
+            ),
+          ),
+        )
       ],
-      
     ));
   }
 }

@@ -1,9 +1,10 @@
-import 'package:best_flutter_ui_templates/design_course/category_list_view.dart';
-import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
+import 'package:best_flutter_ui_templates/utils/api_helper.dart';
+import 'package:dio/dio.dart';
 import 'package:best_flutter_ui_templates/design_course/home_design_course.dart';
 import 'package:best_flutter_ui_templates/design_course/popular_course_list_view.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
+import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 
 class LoginAppScreen extends StatefulWidget {
@@ -13,6 +14,22 @@ class LoginAppScreen extends StatefulWidget {
 
 class _LoginAppScreenState extends State<LoginAppScreen> {
   CategoryType categoryType = CategoryType.ui;
+
+  bool isLoading = false;
+
+  void login() async{
+    setState(() {
+      isLoading = true;
+    });
+    var response = await ApiHelper.postRequest(context, globals.baseUrl + '/users/auth',{
+      'login': 'bruno',
+      'password': '123456'
+    }); 
+    print(response['token']['token']);
+    setState(() {
+      isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -267,7 +284,8 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
                   splashColor: Colors.white24,
                   onTap: () {
                     setState(() {
-                      moveTo();
+                      //moveTo();
+                      login();
                     });
                   },
                   child: Container(
