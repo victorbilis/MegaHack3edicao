@@ -39,7 +39,7 @@ class _AtividadeState extends State<Atividade> {
   void nextPage() {
     slideIndex++;
     if (slideIndex == myQuestions.length) {
-      Navigator.push<dynamic>(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => AtividadeFinalizado(),
