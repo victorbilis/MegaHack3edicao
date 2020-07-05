@@ -1,10 +1,13 @@
 import 'package:best_flutter_ui_templates/book_screen/select_action.dart';
+import 'package:best_flutter_ui_templates/design_course/models/category.dart';
 import 'package:best_flutter_ui_templates/design_course/tutorial.dart';
 import 'package:flutter/material.dart';
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:flutter/services.dart';
 
 class CourseInfoScreen extends StatefulWidget {
+  Category category;
+  CourseInfoScreen({this.category});
   @override
   _CourseInfoScreenState createState() => _CourseInfoScreenState();
 }
@@ -60,7 +63,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
               children: <Widget>[
                 AspectRatio(
                   aspectRatio: 1.2,
-                  child: Image.asset('assets/images/fundo1.png'),
+                  child: Image.network(widget.category.imagePath),
                 ),
               ],
             ),
@@ -99,7 +102,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                             padding: const EdgeInsets.only(
                                 top: 32.0, left: 18, right: 16),
                             child: Text(
-                              'Menino maluquinho',
+                              widget.category.title,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
@@ -120,7 +123,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                   child: Row(
                                     children: <Widget>[
                                       Text(
-                                        '4.3',
+                                        widget.category.rating.toString(),
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           fontWeight: FontWeight.w200,
@@ -147,7 +150,8 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                               padding: const EdgeInsets.all(8),
                               child: Row(
                                 children: <Widget>[
-                                  getTimeBoxUI('L', 'Classe'),
+                                  getTimeBoxUI(
+                                      widget.category.rating_content, 'Classe'),
                                 ],
                               ),
                             ),
@@ -160,7 +164,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                 padding: const EdgeInsets.only(
                                     left: 16, right: 16, top: 8, bottom: 8),
                                 child: Text(
-                                  'Menino Maluquinho é um garoto normal, feliz e bem cuidado por sua família que, enquanto aproveita a infância brincando na rua com a turma, observa o mundo que o cerca e aprende a lidar com a vida.',
+                                  widget.category.description,
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w200,
@@ -168,8 +172,6 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                     letterSpacing: 0.27,
                                     color: DesignCourseAppTheme.grey,
                                   ),
-                                  maxLines: 3,
-                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ),
@@ -294,8 +296,8 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
     Navigator.push<dynamic>(
       context,
       MaterialPageRoute<dynamic>(
-       // builder: (BuildContext context) => Tutorial(),
-      builder: (BuildContext context) => SelectAtionScreen(),
+        // builder: (BuildContext context) => Tutorial(),
+        builder: (BuildContext context) => SelectAtionScreen(),
       ),
     );
   }

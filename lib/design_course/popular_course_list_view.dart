@@ -1,6 +1,9 @@
+import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:best_flutter_ui_templates/design_course/models/category.dart';
 import 'package:best_flutter_ui_templates/main.dart';
+import 'package:best_flutter_ui_templates/utils/api_helper.dart';
+import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
 import 'package:flutter/material.dart';
 
 class PopularCourseListView extends StatefulWidget {
@@ -14,11 +17,54 @@ class PopularCourseListView extends StatefulWidget {
 class _PopularCourseListViewState extends State<PopularCourseListView>
     with TickerProviderStateMixin {
   AnimationController animationController;
+
+  bool isLoading = false;
+  List<Category> booksList = new List();
+
+  Future<bool> getLivros() async {
+    var response =
+        await ApiHelper.getRequest(context, globals.baseUrl + '/books');
+
+    if (response['status'] == 200) {
+      print(response);
+      var i = 0;
+      booksList.clear();
+      while (i < response["books"].length) {
+        booksList.add(
+          Category(
+            imagePath: response["books"][i]["thumbnail"],
+            title: response["books"][i]["title"],
+            description: response["books"][i]["description"],
+            lessonCount: 0,
+            themes: response["books"][i]["themes"],
+            pages: response["books"][i]["pages"],
+            money: 0,
+            rating: response["books"][i]["rating_star"],
+            rating_content: response["books"][i]["rating_content"],
+          ),
+        );
+        i++;
+      }
+    } else {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text("Aviso"),
+              content: Text("Login ou senha inválidos"),
+            );
+          });
+    }
+
+    return true;
+  }
+
   @override
   void initState() {
     animationController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
     super.initState();
+    getLivros();
   }
 
   Future<bool> getData() async {
@@ -31,7 +77,7 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
     return Padding(
       padding: const EdgeInsets.only(top: 0),
       child: FutureBuilder<bool>(
-        future: getData(),
+        future: getLivros(),
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (!snapshot.hasData) {
             return const SizedBox();
@@ -41,9 +87,9 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               children: List<Widget>.generate(
-                Category.popularCourseList.length,
+                booksList.length,
                 (int index) {
-                  final int count = Category.popularCourseList.length;
+                  final int count = booksList.length;
                   final Animation<double> animation =
                       Tween<double>(begin: 0.0, end: 1.0).animate(
                     CurvedAnimation(
@@ -55,9 +101,15 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
                   animationController.forward();
                   return CategoryView(
                     callback: () {
-                      widget.callBack();
+                      Navigator.push<dynamic>(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                          // builder: (BuildContext context) => Tutorial(),
+                          builder: (BuildContext context) => CourseInfoScreen(category: booksList[index],),
+                        ),
+                      );
                     },
-                    category: Category.popularCourseList[index],
+                    category: booksList[index],
                     animation: animation,
                     animationController: animationController,
                   );
@@ -210,8 +262,8 @@ class CategoryView extends StatelessWidget {
                       ),
                     ),*/
                     Container(
-                        child: Container(
-                         /* decoration: BoxDecoration(
+                      child: Container(
+                        /* decoration: BoxDecoration(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(16.0)),
                             boxShadow: <BoxShadow>[
@@ -222,9 +274,8 @@ class CategoryView extends StatelessWidget {
                                   blurRadius: 6.0),
                             ],
                           ),*/
-                          child: Image.asset(category.imagePath),
-                          
-                        ),
+                        child: Image.network(category.imagePath),
+                      ),
                     ),
                   ],
                 ),

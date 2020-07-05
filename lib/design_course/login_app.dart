@@ -16,16 +16,30 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
   CategoryType categoryType = CategoryType.ui;
 
   bool isLoading = false;
+  TextEditingController loginController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   void login() async{
     setState(() {
       isLoading = true;
     });
     var response = await ApiHelper.postRequest(context, globals.baseUrl + '/users/auth',{
-      'login': 'bruno',
-      'password': '123456'
+      'login': loginController.text.trim(),
+      'password': passwordController.text
     }); 
-    print(response['token']['token']);
+
+    if(response['status'] == 200){
+      globals.token = response['token']['token'];
+      moveTo();
+    }else{
+      showDialog(context: context,builder: (context){
+        return AlertDialog(
+          title: Text("Aviso"),
+          content: Text("Login ou senha inválidos"),
+        );
+      });
+    }
+    
     setState(() {
       isLoading = false;
     });
@@ -51,6 +65,7 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
                   height: MediaQuery.of(context).size.height,
                   child: Column(
                     children: <Widget>[
+                      
                       Flexible(
                         child: getLogin(),
                       ),
@@ -59,7 +74,7 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
                 ),
               ),
             ),
-           
+            
           ],
         ),
       ),
@@ -186,6 +201,7 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
                           child: Container(
                             padding: const EdgeInsets.only(left: 16, right: 16),
                             child: TextFormField(
+                              controller: loginController,
                               decoration: InputDecoration(
                                 labelText: 'Login',
                                 border: InputBorder.none,
@@ -244,6 +260,8 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
                           child: Container(
                             padding: const EdgeInsets.only(left: 16, right: 16),
                             child: TextFormField(
+                              controller: passwordController,
+                              obscureText: true,
                               decoration: InputDecoration(
                                 labelText: 'Senha',
                                 border: InputBorder.none,
@@ -329,7 +347,11 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
                 child: Text('Esqueceu sua senha?',style: TextStyle(color: Color(0XFFa3a3a3)))
               )
             ],
-          )
+          ),
+          (isLoading) ? Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: LinearProgressIndicator(),
+          ):SizedBox(),
         ],
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:best_flutter_ui_templates/design_course/models/category.dart';
 import 'package:best_flutter_ui_templates/main.dart';
+import 'package:best_flutter_ui_templates/utils/api_helper.dart';
+import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
 import 'package:flutter/material.dart';
 
 class CategoryListView extends StatefulWidget {
@@ -15,11 +17,14 @@ class _CategoryListViewState extends State<CategoryListView>
     with TickerProviderStateMixin {
   AnimationController animationController;
 
+  List<Category> booksList = new List(); 
+
   @override
   void initState() {
     animationController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
     super.initState();
+   
   }
 
   Future<bool> getData() async {
@@ -43,12 +48,12 @@ class _CategoryListViewState extends State<CategoryListView>
               return ListView.builder(
                 padding: const EdgeInsets.only(
                     top: 0, bottom: 0, right: 16, left: 16),
-                itemCount: Category.categoryList.length,
+                itemCount: booksList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  final int count = Category.categoryList.length > 10
+                  final int count = booksList.length > 10
                       ? 10
-                      : Category.categoryList.length;
+                      : booksList.length;
                   final Animation<double> animation =
                       Tween<double>(begin: 0.0, end: 1.0).animate(
                           CurvedAnimation(
@@ -58,7 +63,7 @@ class _CategoryListViewState extends State<CategoryListView>
                   animationController.forward();
 
                   return CategoryView(
-                    category: Category.categoryList[index],
+                    category: booksList[index],
                     animation: animation,
                     animationController: animationController,
                     callback: () {
