@@ -5,13 +5,13 @@ const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "index.html": "98e97ac6ed5c96497bceef45b51ad1fa",
 "/": "98e97ac6ed5c96497bceef45b51ad1fa",
-"main.dart.js": "77f43efb1eb03676371165a1b95ebdc9",
+"main.dart.js": "c0341a6f8be6a925da29bf9400235da5",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "eddc540284bc79048b6eb25ca3219f57",
-"assets/AssetManifest.json": "007265907f0f7d5dcb5b044bf2e76211",
-"assets/NOTICES": "9745dd89ca3d7f52f4294d7602d3354b",
+"assets/AssetManifest.json": "8099ee1355d1fd131aec3e2b95cf5967",
+"assets/NOTICES": "7535e44dfaff523dc646eb74a48fc7d6",
 "assets/FontManifest.json": "05eea3c211b2e09402b71da465a281bb",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "2aa350bd2aeab88b601a593f793734c0",
@@ -36,7 +36,6 @@ const RESOURCES = {
 "assets/assets/elephant_icon.png": "509582b6e37901688aa523dbb80504cb",
 "assets/assets/continuar_select_action.png": "6d872a3448b8b8d549a49ef962b1c578",
 "assets/assets/tiger_icon.png": "174a13a2dcdf9492af606fb7c4603e13",
-"assets/assets/tutorial12.png": "43d37fc0e892c71804f40324e093ce9b",
 "assets/assets/hotel/hotel_booking.png": "89f1fbbdc7d80e4a6292622d7f929690",
 "assets/assets/hotel/hotel_1.png": "a9ae40f2bd59b4e56bc3d6ddd98768a5",
 "assets/assets/hotel/hotel_2.png": "1303973de1c8e2226a34b770aaa50fb0",
@@ -91,10 +90,8 @@ const RESOURCES = {
 "assets/assets/next_icon.png": "cfae998ed1ebbdd4bebe79dfc9499d27",
 "assets/assets/image%252023.png": "7319674d2f92072867509e59e3407202",
 "assets/assets/person_reading_icon.png": "72be2b0259d717a47f5cb5e07a493286",
+"assets/assets/tesouro.png": "e200abb229e802f6291d038e1ffc0c84",
 "assets/assets/back_icon.png": "5a5b0fa401cf03314d182e97016f2199",
-"assets/assets/tutorial22.png": "4d8c329df27663c1359dd26296dbb4ef",
-"assets/assets/tutorial4.png": "126f163232b9889a950e89af2aafe316",
-"assets/assets/tutorial5.png": "eaf1ed123f6cae66a464f8b6a001a944",
 "assets/assets/fonts/WorkSans-Regular.ttf": "30be604d29fd477c201fb1d6e668eaeb",
 "assets/assets/fonts/Roboto-Medium.ttf": "58aef543c97bbaf6a9896e8484456d98",
 "assets/assets/fonts/Roboto-Regular.ttf": "11eabca2251325cfc5589c9c6fb57b46",
@@ -115,7 +112,7 @@ const RESOURCES = {
 "assets/assets/design_course/interFace2.png": "c101d35e907f00f40900fca7f9c4c69e",
 "assets/assets/design_course/webInterFace.png": "3ac7805ba2cca78a43bcb0658b1098cd",
 "assets/assets/design_course/interFace4.png": "aeaa1e1b0de05128ab97337e9a73c25c",
-"assets/assets/tutorial3.png": "f5e21042826e20241c891eeb1e50e3cb"
+"assets/assets/tutorial3.png": "7f4ce3274fa55c3bd1d86f30362442de"
 };
 
 // The application shell files that are downloaded before a service worker can
