@@ -19,31 +19,23 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
       color: DesignCourseAppTheme.nearlyWhite,
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Column(
-          children: <Widget>[
-            SizedBox(
-              height: MediaQuery.of(context).padding.top,
-            ),
-            getAppBarUI(),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  child: Column(
-                    children: <Widget>[
-                      getSearchBarUI(),
-                      getCategoryUI(),
-                      Flexible(
-                        child: (categoryType == CategoryType.ui)
-                            ? getPopularCourseUI()
-                            : getTrilha(),
-                      ),
-                    ],
-                  ),
-                ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: MediaQuery.of(context).padding.top,
               ),
-            ),
-          ],
+              getAppBarUI(),
+              getSearchBarUI(),
+              getCategoryUI(),
+              (categoryType == CategoryType.ui)
+                  ? Container(
+                      width: double.maxFinite,
+                      height: 1000,
+                      child: getPopularCourseUI())
+                  : SingleChildScrollView(child: getTrilha()),
+            ],
+          ),
         ),
       ),
     );
@@ -96,30 +88,191 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
   }
 
   Widget getTrilha() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          /*Text(
-            'Popular Course',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 22,
-              letterSpacing: 0.27,
-              color: DesignCourseAppTheme.darkerText,
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Center(
+              child: Container(
+                width: 150,
+                height: 150,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color(0XFF55C9C8),
+                    image: DecorationImage(
+                        image: AssetImage('assets/duck_trilha.png'))),
+              ),
             ),
-          ),*/
-          Flexible(
-            child: PopularCourseListView(
-              callBack: () {
-                moveTo();
-              },
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 250,
+                ),
+                Transform.rotate(
+                    angle: 4.2,
+                    child: Container(
+                        width: 2, height: 40, color: Colors.blueAccent)),
+              ],
             ),
-          )
-        ],
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 180,
+                ),
+                Transform.rotate(
+                    angle: 4,
+                    child: Container(
+                        width: 2, height: 40, color: Colors.blueAccent)),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 60,
+                ),
+                Center(
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color(0XFF55C9C8),
+                        image: DecorationImage(
+                            image: AssetImage('assets/pig_trilha.png'))),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 60,
+                ),
+                Transform.rotate(
+                    angle: 8.2,
+                    child: Container(
+                        width: 2, height: 40, color: Colors.blueAccent)),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Transform.rotate(
+                    angle: 8.2,
+                    child: Container(
+                        width: 2, height: 40, color: Colors.blueAccent)),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  width: 180,
+                ),
+                Transform.rotate(
+                    angle: 8.3,
+                    child: Container(
+                        width: 2, height: 40, color: Colors.blueAccent)),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Center(
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color(0XFF55C9C8),
+                        image: DecorationImage(
+                            image: AssetImage('assets/cow_trilha.png'))),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Center(
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color(0XFFC4C4C4),
+                        image: DecorationImage(
+                            image:
+                                AssetImage('assets/another_duck_trilha.png'))),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Center(
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color(0XFFC4C4C4),
+                        image: DecorationImage(
+                            image: AssetImage('assets/fish_trilha.png'))),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Center(
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color(0XFFC4C4C4),
+                        image: DecorationImage(
+                            image: AssetImage('assets/cat_trilha.png'))),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Center(
+                  child: Container(
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color(0XFFC4C4C4),
+                        image: DecorationImage(
+                            image: AssetImage('assets/dog_trilha.png'))),
+                  ),
+                ),
+              ],
+            ),
+            /*Text(
+              'Popular Course',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 22,
+                letterSpacing: 0.27,
+                color: DesignCourseAppTheme.darkerText,
+              ),
+            ),*/
+            // Flexible(
+            //   child: PopularCourseListView(
+            //     callBack: () {
+            //       moveTo();
+            //     },
+            //   ),
+            // )
+          ],
+        ),
       ),
     );
   }
