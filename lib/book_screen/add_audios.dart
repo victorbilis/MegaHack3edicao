@@ -170,15 +170,36 @@ class _AddAudioScreenState extends State<AddAudioScreen>
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: MaterialButton(
-                color: Color(0XFF55C9C8),
-                onPressed: () {},
-                child: Text(
-                  'ADICIONAR',
-                  style: TextStyle(color: Colors.white),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  MaterialButton(
+                    color: Color(0XFF55C9C8),
+                    onPressed: () {},
+                    child: Text(
+                      'ADICIONAR',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  MaterialButton(
+                    color: Color(0XFF55C9C8),
+                    onPressed: () {},
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.store, color: Colors.white),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text('LOJA', style: TextStyle(color: Colors.white)),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            )
+            ),
           ],
         ));
   }
