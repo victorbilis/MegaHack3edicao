@@ -58,8 +58,8 @@ class _SelectAtionScreenState extends State<SelectAtionScreen> {
           alignment: Alignment.bottomRight,
           child: GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => FiltrosScreen()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Tutorial()));
             },
             child: Container(
                 width: 100,
