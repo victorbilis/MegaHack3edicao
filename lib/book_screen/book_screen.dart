@@ -1,9 +1,12 @@
 import 'package:best_flutter_ui_templates/book_screen/add_audios.dart';
 import 'package:best_flutter_ui_templates/book_screen/finished_screen.dart';
 import 'package:best_flutter_ui_templates/book_screen/page.dart';
+import 'package:best_flutter_ui_templates/utils/api_helper.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:page_turn/page_turn.dart';
 import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
+import 'package:video_player/video_player.dart';
 import '../design_course/design_course_app_theme.dart';
 
 class BookScreen extends StatefulWidget {
@@ -11,10 +14,12 @@ class BookScreen extends StatefulWidget {
   _BookScreenState createState() => _BookScreenState();
 }
 
-class _BookScreenState extends State<BookScreen> {
+class _BookScreenState extends State<BookScreen> with TickerProviderStateMixin {
   final _controller = GlobalKey<PageTurnState>();
   bool addAudio = false;
-
+  AnimationController _animationController;
+  VideoPlayerController _controllerAudio;
+  bool playAudio = false;
   void closeAddAudio() {
     setState(() {
       addAudio = false;
@@ -77,7 +82,28 @@ class _BookScreenState extends State<BookScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Image.asset('assets/record_icon.png'),
+                        GestureDetector(
+                            onTap: () async {
+                              if (playAudio) {
+                                _controllerAudio.pause();
+                                playAudio = false;
+                              } else {
+                                _animationController = new AnimationController(
+                                    vsync: this,
+                                    duration: Duration(seconds: 1));
+                                _animationController.repeat();
+
+                                Future.delayed(Duration(seconds: 1), () async {
+                                  _controllerAudio =
+                                      VideoPlayerController.asset(
+                                          'assets/audios/audio_fundo.wav');
+                                  await _controllerAudio.initialize();
+                                  _controllerAudio.play();
+                                });
+                                playAudio = true;
+                              }
+                            },
+                            child: Image.asset('assets/record_icon.png')),
                         SizedBox(
                           height: 20,
                         ),
@@ -96,6 +122,37 @@ class _BookScreenState extends State<BookScreen> {
                         RightButtonCircle(
                           img: 'assets/add_icon.png',
                           onPressed: openAddAudio,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        RightButtonCircle(
+                          icon: Icon(
+                            Icons.phone,
+                            size: 20,
+                          ),
+                          onPressed: () async {
+                            var response = await Dio().post(
+                              'https://api2.totalvoice.com.br/chamada',
+                              options: RequestOptions(headers: {
+                                'Access-Token':
+                                    'e73a5b17288667c2bf727924f29ecdd4'
+                              }),
+                              data: {
+                                "numero_origem": "19998517324",
+                                "numero_destino": "19991563732",
+                              },
+                            );
+                            print(response);
+//                             var response = await ApiHelper.postRequest(context, 'https://api2.totalvoice.com.br/chamada', {
+//   "numero_origem": "19998517324",
+//   "numero_destino": "19991563732"
+// });
+//                             curl -X POST --header
+//                             'Content-Type: application/json'
+//                              --header 'Accept: application/json'
+//                              -d '{"numero_origem":"","numero_destino":"","data_criacao":"","gravar_audio":false,"bina_origem":"","bina_destino":"","tags":"","detecta_caixa_origem":false}'
+                          },
                         ),
                         SizedBox(
                           height: 50,
@@ -170,7 +227,8 @@ class RightButtonCircle extends StatelessWidget {
   String img;
   var onPressed;
   bool selected;
-  RightButtonCircle({this.img, this.onPressed, this.selected});
+  Icon icon;
+  RightButtonCircle({this.img, this.onPressed, this.selected, this.icon});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -183,7 +241,7 @@ class RightButtonCircle extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         alignment: Alignment.center,
-        child: Image.asset(img),
+        child: (icon != null) ? icon : Image.asset(img),
       ),
     );
   }
