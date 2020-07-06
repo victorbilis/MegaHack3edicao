@@ -1,12 +1,12 @@
-import 'package:best_flutter_ui_templates/design_course/atividade_finalizado.dart';
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
-import 'package:best_flutter_ui_templates/design_course/filtros.dart';
-import 'package:best_flutter_ui_templates/design_course/questions.dart';
-import 'package:best_flutter_ui_templates/design_course/slides.dart';
-import 'package:best_flutter_ui_templates/utils/api_helper.dart';
+import 'package:raizes_do_saber/design_course/atividade_finalizado.dart';
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/design_course/filtros.dart';
+import 'package:raizes_do_saber/design_course/questions.dart';
+import 'package:raizes_do_saber/design_course/slides.dart';
+import 'package:raizes_do_saber/utils/api_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
+import 'package:raizes_do_saber/utils/globals.dart' as globals;
 
 class Atividade extends StatefulWidget {
   @override

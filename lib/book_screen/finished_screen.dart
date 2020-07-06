@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/design_course/inicioAtividade.dart';
+import 'package:raizes_do_saber/design_course/inicioAtividade.dart';
 import 'package:flutter/material.dart';
 
 class FinishedScreen extends StatelessWidget {

@@ -1,7 +1,7 @@
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
-import 'package:best_flutter_ui_templates/design_course/filtros.dart';
-import 'package:best_flutter_ui_templates/design_course/inicioAtividade.dart';
-import 'package:best_flutter_ui_templates/design_course/slides.dart';
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/design_course/filtros.dart';
+import 'package:raizes_do_saber/design_course/inicioAtividade.dart';
+import 'package:raizes_do_saber/design_course/slides.dart';
 import 'package:flutter/material.dart';
 
 class Tutorial extends StatefulWidget {
@@ -146,8 +146,8 @@ class _TutorialState extends State<Tutorial> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute<dynamic>(
-                     // builder: (BuildContext context) => FiltrosScreen(),
-                     builder: (BuildContext context) => InicioAtividade(),
+                      // builder: (BuildContext context) => FiltrosScreen(),
+                      builder: (BuildContext context) => InicioAtividade(),
                     ),
                   );
                 },

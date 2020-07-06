@@ -1,12 +1,12 @@
 import 'dart:io';
-import 'package:best_flutter_ui_templates/app_theme.dart';
-import 'package:best_flutter_ui_templates/book_screen/book_screen.dart';
-import 'package:best_flutter_ui_templates/book_screen/finished_screen.dart';
-import 'package:best_flutter_ui_templates/book_screen/select_action.dart';
-import 'package:best_flutter_ui_templates/design_course/login_app.dart';
+import 'package:raizes_do_saber/app_theme.dart';
+import 'package:raizes_do_saber/book_screen/book_screen.dart';
+import 'package:raizes_do_saber/book_screen/finished_screen.dart';
+import 'package:raizes_do_saber/book_screen/select_action.dart';
+import 'package:raizes_do_saber/design_course/login_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:best_flutter_ui_templates/design_course/home_design_course.dart';
+import 'package:raizes_do_saber/design_course/home_design_course.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,10 +1,10 @@
-import 'package:best_flutter_ui_templates/design_course/category_list_view.dart';
-import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
-import 'package:best_flutter_ui_templates/design_course/perfil.dart';
-import 'package:best_flutter_ui_templates/design_course/popular_course_list_view.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:raizes_do_saber/design_course/category_list_view.dart';
+import 'package:raizes_do_saber/design_course/course_info_screen.dart';
+import 'package:raizes_do_saber/design_course/perfil.dart';
+import 'package:raizes_do_saber/design_course/popular_course_list_view.dart';
+import 'package:raizes_do_saber/main.dart';
 import 'package:flutter/material.dart';
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
 
 class DesignCourseHomeScreen extends StatefulWidget {
   @override
@@ -36,7 +36,8 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                       height: 30,
                       child: Text(
                         '600 pontos',
-                        style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
                   ),
@@ -116,8 +117,8 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
               child: Container(
                 height: 70,
                 decoration: BoxDecoration(
-                  color: DesignCourseAppTheme.nearlyGreen10,
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: DesignCourseAppTheme.nearlyGreen10,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     border:
                         Border.all(color: DesignCourseAppTheme.nearlyGreen)),
                 child: Row(
@@ -129,7 +130,11 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('4 patos e uma pata', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                      child: Text(
+                        '4 patos e uma pata',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
@@ -140,10 +145,9 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
               child: Container(
                 height: 70,
                 decoration: BoxDecoration(
-                  color: Color(0XFFc9c9c9),
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                    border:
-                        Border.all(color: Color(0XFF9e9e9e))),
+                    color: Color(0XFFc9c9c9),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(color: Color(0XFF9e9e9e))),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -153,7 +157,11 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('4 patos e uma pata', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                      child: Text(
+                        '4 patos e uma pata',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
@@ -358,7 +366,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
               child: Image.asset('assets/design_course/perfil.png'),
             ),
           ),
-         /* Padding(
+          /* Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Container(
               width: 60,

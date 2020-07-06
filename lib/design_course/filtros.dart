@@ -1,9 +1,9 @@
-import 'package:best_flutter_ui_templates/design_course/category_list_view.dart';
-import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
-import 'package:best_flutter_ui_templates/design_course/popular_course_list_view.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:raizes_do_saber/design_course/category_list_view.dart';
+import 'package:raizes_do_saber/design_course/course_info_screen.dart';
+import 'package:raizes_do_saber/design_course/popular_course_list_view.dart';
+import 'package:raizes_do_saber/main.dart';
 import 'package:flutter/material.dart';
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
 import 'package:flutter/services.dart';
 
 class FiltrosScreen extends StatefulWidget {

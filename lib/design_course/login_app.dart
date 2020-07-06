@@ -1,11 +1,11 @@
-import 'package:best_flutter_ui_templates/utils/api_helper.dart';
+import 'package:raizes_do_saber/utils/api_helper.dart';
 import 'package:dio/dio.dart';
-import 'package:best_flutter_ui_templates/design_course/home_design_course.dart';
-import 'package:best_flutter_ui_templates/design_course/popular_course_list_view.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:raizes_do_saber/design_course/home_design_course.dart';
+import 'package:raizes_do_saber/design_course/popular_course_list_view.dart';
+import 'package:raizes_do_saber/main.dart';
 import 'package:flutter/material.dart';
-import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/utils/globals.dart' as globals;
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
 
 class LoginAppScreen extends StatefulWidget {
   @override

@@ -1,10 +1,10 @@
-import 'package:best_flutter_ui_templates/book_screen/select_action.dart';
-import 'package:best_flutter_ui_templates/design_course/models/category.dart';
-import 'package:best_flutter_ui_templates/design_course/tutorial.dart';
+import 'package:raizes_do_saber/book_screen/select_action.dart';
+import 'package:raizes_do_saber/design_course/models/category.dart';
+import 'package:raizes_do_saber/design_course/tutorial.dart';
 import 'package:flutter/material.dart';
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
 import 'package:flutter/services.dart';
-import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
+import 'package:raizes_do_saber/utils/globals.dart' as globals;
 
 class CourseInfoScreen extends StatefulWidget {
   Category category;
