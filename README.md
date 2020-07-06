@@ -33,6 +33,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 
 - Flutter
 - TotalVoice
+- [Back-end](https://github.com/BrunoEleodoro/megahack3-backend/tree/master)
 
 ## ✍ Autores
 
