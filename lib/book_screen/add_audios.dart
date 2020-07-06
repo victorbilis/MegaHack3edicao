@@ -1,5 +1,5 @@
-import 'package:best_flutter_ui_templates/book_screen/book_screen.dart';
-import 'package:best_flutter_ui_templates/book_screen/page.dart';
+import 'package:raizes_do_saber/book_screen/book_screen.dart';
+import 'package:raizes_do_saber/book_screen/page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_turn/page_turn.dart';
@@ -170,15 +170,36 @@ class _AddAudioScreenState extends State<AddAudioScreen>
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: MaterialButton(
-                color: Color(0XFF55C9C8),
-                onPressed: () {},
-                child: Text(
-                  'ADICIONAR',
-                  style: TextStyle(color: Colors.white),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  MaterialButton(
+                    color: Color(0XFF55C9C8),
+                    onPressed: () {},
+                    child: Text(
+                      'ADICIONAR',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  MaterialButton(
+                    color: Color(0XFF55C9C8),
+                    onPressed: () {},
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.store, color: Colors.white),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text('LOJA', style: TextStyle(color: Colors.white)),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            )
+            ),
           ],
         ));
   }

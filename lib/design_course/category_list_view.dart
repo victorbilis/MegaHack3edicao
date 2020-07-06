@@ -1,8 +1,8 @@
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
-import 'package:best_flutter_ui_templates/design_course/models/category.dart';
-import 'package:best_flutter_ui_templates/main.dart';
-import 'package:best_flutter_ui_templates/utils/api_helper.dart';
-import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/design_course/models/category.dart';
+import 'package:raizes_do_saber/main.dart';
+import 'package:raizes_do_saber/utils/api_helper.dart';
+import 'package:raizes_do_saber/utils/globals.dart' as globals;
 import 'package:flutter/material.dart';
 
 class CategoryListView extends StatefulWidget {
@@ -17,14 +17,13 @@ class _CategoryListViewState extends State<CategoryListView>
     with TickerProviderStateMixin {
   AnimationController animationController;
 
-  List<Category> booksList = new List(); 
+  List<Category> booksList = new List();
 
   @override
   void initState() {
     animationController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
     super.initState();
-   
   }
 
   Future<bool> getData() async {
@@ -51,9 +50,8 @@ class _CategoryListViewState extends State<CategoryListView>
                 itemCount: booksList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  final int count = booksList.length > 10
-                      ? 10
-                      : booksList.length;
+                  final int count =
+                      booksList.length > 10 ? 10 : booksList.length;
                   final Animation<double> animation =
                       Tween<double>(begin: 0.0, end: 1.0).animate(
                           CurvedAnimation(
@@ -113,7 +111,7 @@ class CategoryView extends StatelessWidget {
                 width: 140,
                 child: Stack(
                   children: <Widget>[
-                   /* Container(
+                    /* Container(
                       child: Row(
                         children: <Widget>[
                           const SizedBox(
@@ -257,9 +255,9 @@ class CategoryView extends StatelessWidget {
                         ],
                       ),
                     ),*/
-                   Container(
-                        child: Container(
-                         /* decoration: BoxDecoration(
+                    Container(
+                      child: Container(
+                        /* decoration: BoxDecoration(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(16.0)),
                             boxShadow: <BoxShadow>[
@@ -270,9 +268,8 @@ class CategoryView extends StatelessWidget {
                                   blurRadius: 6.0),
                             ],
                           ),*/
-                          child: Image.asset(category.imagePath),
-                          
-                        ),
+                        child: Image.asset(category.imagePath),
+                      ),
                     ),
                   ],
                 ),

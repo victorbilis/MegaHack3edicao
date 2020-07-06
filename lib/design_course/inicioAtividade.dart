@@ -1,7 +1,7 @@
-import 'package:best_flutter_ui_templates/design_course/atividade.dart';
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
-import 'package:best_flutter_ui_templates/design_course/filtros.dart';
-import 'package:best_flutter_ui_templates/design_course/slides.dart';
+import 'package:raizes_do_saber/design_course/atividade.dart';
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/design_course/filtros.dart';
+import 'package:raizes_do_saber/design_course/slides.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -31,10 +31,8 @@ class _InicioAtividadeState extends State<InicioAtividade> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown
-    ]);
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     mySLides = getSlides();
     controller = new PageController();
   }
@@ -97,26 +95,26 @@ class _InicioAtividadeState extends State<InicioAtividade> {
             )
           ],
         ),
-        bottomSheet: InkWell( 
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute<dynamic>(
-                      builder: (BuildContext context) => Atividade(),
-                    ),
-                  );
-                },
-                child: Container(
-                  height: 60,
-                  color: DesignCourseAppTheme.nearlyGreen10,
-                  alignment: Alignment.center,
-                  child: Text(
-                    "INICIAR AGORA",
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.w600),
-                  ),
-                ),
+        bottomSheet: InkWell(
+          onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute<dynamic>(
+                builder: (BuildContext context) => Atividade(),
               ),
+            );
+          },
+          child: Container(
+            height: 60,
+            color: DesignCourseAppTheme.nearlyGreen10,
+            alignment: Alignment.center,
+            child: Text(
+              "INICIAR AGORA",
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+            ),
+          ),
+        ),
       ),
     );
   }

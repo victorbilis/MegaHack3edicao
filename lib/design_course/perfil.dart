@@ -1,7 +1,7 @@
-import 'package:best_flutter_ui_templates/book_screen/select_action.dart';
-import 'package:best_flutter_ui_templates/design_course/tutorial.dart';
+import 'package:raizes_do_saber/book_screen/select_action.dart';
+import 'package:raizes_do_saber/design_course/tutorial.dart';
 import 'package:flutter/material.dart';
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
 import 'package:flutter/services.dart';
 
 class PerfilScreen extends StatefulWidget {
@@ -84,8 +84,7 @@ class _PerfilScreenState extends State<PerfilScreen>
                   child: SingleChildScrollView(
                     child: Container(
                       constraints: BoxConstraints(
-                          minHeight: infoHeight,
-                          maxHeight: tempHeight),
+                          minHeight: infoHeight, maxHeight: tempHeight),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -125,8 +124,8 @@ class _PerfilScreenState extends State<PerfilScreen>
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 0, right: 0),
+                                  padding:
+                                      const EdgeInsets.only(left: 0, right: 0),
                                   child: Icon(
                                     Icons.mail_outline,
                                     color: DesignCourseAppTheme.nearlyBlack,
@@ -163,8 +162,8 @@ class _PerfilScreenState extends State<PerfilScreen>
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 0, right: 0),
+                                  padding:
+                                      const EdgeInsets.only(left: 0, right: 0),
                                   child: Icon(
                                     Icons.phone,
                                     color: DesignCourseAppTheme.nearlyBlack,
@@ -214,7 +213,6 @@ class _PerfilScreenState extends State<PerfilScreen>
                               ),
                             ),
                           ),
-                          
                           Padding(
                             padding: const EdgeInsets.only(
                                 top: 10.0, left: 18, right: 16),
@@ -237,8 +235,14 @@ class _PerfilScreenState extends State<PerfilScreen>
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  getTimeBoxUI('assets/design_course/medalha.png','INICIANTE', 'Nível'),
-                                  getTimeBoxUI('assets/design_course/coracao.png','ROMANCE', 'Gênero favorito'),
+                                  getTimeBoxUI(
+                                      'assets/design_course/medalha.png',
+                                      'INICIANTE',
+                                      'Nível'),
+                                  getTimeBoxUI(
+                                      'assets/design_course/coracao.png',
+                                      'ROMANCE',
+                                      'Gênero favorito'),
                                 ],
                               ),
                             ),
@@ -299,7 +303,7 @@ class _PerfilScreenState extends State<PerfilScreen>
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        decoration: BoxDecoration(  
+        decoration: BoxDecoration(
           color: DesignCourseAppTheme.nearlyWhite,
           borderRadius: const BorderRadius.all(Radius.circular(16.0)),
           boxShadow: <BoxShadow>[
@@ -317,7 +321,10 @@ class _PerfilScreenState extends State<PerfilScreen>
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.asset(image, width: 50,),
+                child: Image.asset(
+                  image,
+                  width: 50,
+                ),
               ),
               Text(
                 text1,

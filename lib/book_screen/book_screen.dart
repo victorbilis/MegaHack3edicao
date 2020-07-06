@@ -1,11 +1,11 @@
-import 'package:best_flutter_ui_templates/book_screen/add_audios.dart';
-import 'package:best_flutter_ui_templates/book_screen/finished_screen.dart';
-import 'package:best_flutter_ui_templates/book_screen/page.dart';
-import 'package:best_flutter_ui_templates/utils/api_helper.dart';
+import 'package:raizes_do_saber/book_screen/add_audios.dart';
+import 'package:raizes_do_saber/book_screen/finished_screen.dart';
+import 'package:raizes_do_saber/book_screen/page.dart';
+import 'package:raizes_do_saber/utils/api_helper.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:page_turn/page_turn.dart';
-import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
+import 'package:raizes_do_saber/utils/globals.dart' as globals;
 import 'package:video_player/video_player.dart';
 import '../design_course/design_course_app_theme.dart';
 

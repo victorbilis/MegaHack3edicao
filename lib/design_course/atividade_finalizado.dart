@@ -1,8 +1,8 @@
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
-import 'package:best_flutter_ui_templates/design_course/filtros.dart';
-import 'package:best_flutter_ui_templates/design_course/perfil.dart';
-import 'package:best_flutter_ui_templates/design_course/questions.dart';
-import 'package:best_flutter_ui_templates/design_course/slides.dart';
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/design_course/filtros.dart';
+import 'package:raizes_do_saber/design_course/perfil.dart';
+import 'package:raizes_do_saber/design_course/questions.dart';
+import 'package:raizes_do_saber/design_course/slides.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 

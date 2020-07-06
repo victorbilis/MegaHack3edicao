@@ -1,7 +1,7 @@
-import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
-import 'package:best_flutter_ui_templates/design_course/filtros.dart';
-import 'package:best_flutter_ui_templates/design_course/inicioAtividade.dart';
-import 'package:best_flutter_ui_templates/design_course/slides.dart';
+import 'package:raizes_do_saber/design_course/design_course_app_theme.dart';
+import 'package:raizes_do_saber/design_course/filtros.dart';
+import 'package:raizes_do_saber/design_course/inicioAtividade.dart';
+import 'package:raizes_do_saber/design_course/slides.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -94,9 +94,9 @@ class _TutorialState extends State<Tutorial> {
                     ),
                     onTap: () {
                       SystemChrome.setPreferredOrientations([
-                          DeviceOrientation.landscapeRight,
-                          DeviceOrientation.landscapeLeft
-                        ]);
+                        DeviceOrientation.landscapeRight,
+                        DeviceOrientation.landscapeLeft
+                      ]);
                       Navigator.pop(context);
                     },
                   ),
@@ -154,7 +154,6 @@ class _TutorialState extends State<Tutorial> {
                     context,
                     MaterialPageRoute<dynamic>(
                       builder: (BuildContext context) => FiltrosScreen(),
-                     //builder: (BuildContext context) => InicioAtividade(),
                     ),
                   );
                 },
