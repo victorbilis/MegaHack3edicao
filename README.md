@@ -32,7 +32,7 @@ sua criança.
 O projeto foi desenvolvido utilizando as seguintes tecnologias
 
 - Flutter
-- TotalVoice
+- TotalVoice (https://github.com/victorbilisambipar/MegaHack3edicao/blob/master/lib/book_screen/book_screen.dart#L135)
 - [Back-end](https://github.com/BrunoEleodoro/megahack3-backend/tree/master)
 
 ## ✍ Autores
