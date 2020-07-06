@@ -1,15 +1,15 @@
 <h2 align="center">Raízes do Saber</h2>
 
 <p align="center">
-  <img src="https://readme-maker.herokuapp.com/uploads/0efa90d8ad905b46-logo.png" width="300" heigth="300">
+  <img src="https://raw.githubusercontent.com/BrunoEleodoro/megahack3-backend/master/docs/images/WhatsApp%20Image%202020-07-05%20at%2023.55.51.jpeg" width="300" heigth="300">
 </p>
 
 <table>
   <tr>
-    <td><img src="https://readme-maker.herokuapp.com/uploads/4b97859309d398e4-WhatsApp-Image-2020-07-05-at-22.23.30.jpeg" width="200"></td>
-    <td><img src="https://readme-maker.herokuapp.com/uploads/61f8082cb868aced-WhatsApp-Image-2020-07-05-at-22.23.30-(1).jpeg" width="200"></td>
-    <td><img src="https://readme-maker.herokuapp.com/uploads/81cb461a96e57e0a-WhatsApp-Image-2020-07-05-at-22.23.30-(2).jpeg" width="200"></td>
-    <td><img src="https://readme-maker.herokuapp.com/uploads/035c44686d347f56-WhatsApp-Image-2020-07-05-at-22.23.30-(3).jpeg" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/BrunoEleodoro/megahack3-backend/master/docs/images/WhatsApp%20Image%202020-07-05%20at%2022.23.28.jpeg" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/BrunoEleodoro/megahack3-backend/master/docs/images/WhatsApp%20Image%202020-07-05%20at%2022.23.28%20(1).jpeg" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/BrunoEleodoro/megahack3-backend/master/docs/images/WhatsApp%20Image%202020-07-05%20at%2022.23.28%20(2).jpeg" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/BrunoEleodoro/megahack3-backend/master/docs/images/WhatsApp%20Image%202020-07-05%20at%2022.23.28%20(3).jpeg" width="200"></td>
   </tr>
 </table>
 
