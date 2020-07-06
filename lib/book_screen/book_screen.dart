@@ -3,7 +3,7 @@ import 'package:best_flutter_ui_templates/book_screen/finished_screen.dart';
 import 'package:best_flutter_ui_templates/book_screen/page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_turn/page_turn.dart';
-
+import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
 import '../design_course/design_course_app_theme.dart';
 
 class BookScreen extends StatefulWidget {
@@ -28,6 +28,11 @@ class _BookScreenState extends State<BookScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -41,9 +46,18 @@ class _BookScreenState extends State<BookScreen> {
                 backgroundColor: Colors.white,
                 showDragCutoff: false,
                 // duration: Duration(seconds: 1),
-                lastPage: FinishedScreen(),
+                lastPage: Container(
+                  width: MediaQuery.of(context).size.width - 80,
+                  height: MediaQuery.of(context).size.height,
+                  child: Center(
+                    child: Image.network(globals.selected_book.imagePath),
+                  ),
+                ),
                 children: <Widget>[
-                  for (var i = 0; i < 5; i++) BookPage(page: i),
+                  for (var i = 0; i < 5; i++)
+                    BookPage(
+                        img: globals.selected_book.pages[i]['img'],
+                        content: globals.selected_book.pages[i]['text']),
                 ],
               ),
             ),

@@ -19,27 +19,31 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
   TextEditingController loginController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  void login() async{
+  void login() async {
     setState(() {
       isLoading = true;
     });
-    var response = await ApiHelper.postRequest(context, globals.baseUrl + '/users/auth',{
+    print(globals.baseUrl + '/users/auth');
+    var response = await ApiHelper.postRequest(
+        context, globals.baseUrl + '/users/auth', {
       'login': loginController.text.trim(),
       'password': passwordController.text
-    }); 
-
-    if(response['status'] == 200){
+    });
+    print(response);
+    if (response['status'] == 200) {
       globals.token = response['token']['token'];
       moveTo();
-    }else{
-      showDialog(context: context,builder: (context){
-        return AlertDialog(
-          title: Text("Aviso"),
-          content: Text("Login ou senha inválidos"),
-        );
-      });
+    } else {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text("Aviso"),
+              content: Text("Login ou senha inválidos"),
+            );
+          });
     }
-    
+
     setState(() {
       isLoading = false;
     });
@@ -56,8 +60,8 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
             SizedBox(
               height: MediaQuery.of(context).padding.top,
             ),
-             Container(
-              child:Image.asset('assets/background.png'),
+            Container(
+              child: Image.asset('assets/background.png'),
             ),
             Expanded(
               child: SingleChildScrollView(
@@ -65,7 +69,6 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
                   height: MediaQuery.of(context).size.height,
                   child: Column(
                     children: <Widget>[
-                      
                       Flexible(
                         child: getLogin(),
                       ),
@@ -74,7 +77,6 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
                 ),
               ),
             ),
-            
           ],
         ),
       ),
@@ -170,7 +172,7 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
               Container(
                   child: Image.asset(
                 'assets/images/logo.png',
-                width: 350,
+                width: 300,
               )),
             ],
           ),
@@ -298,7 +300,7 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Expanded(
-                child:InkWell(
+                child: InkWell(
                   splashColor: Colors.white24,
                   onTap: () {
                     setState(() {
@@ -343,15 +345,17 @@ class _LoginAppScreenState extends State<LoginAppScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Esqueceu sua senha?',style: TextStyle(color: Color(0XFFa3a3a3)))
-              )
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Esqueceu sua senha?',
+                      style: TextStyle(color: Color(0XFFa3a3a3))))
             ],
           ),
-          (isLoading) ? Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: LinearProgressIndicator(),
-          ):SizedBox(),
+          (isLoading)
+              ? Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: LinearProgressIndicator(),
+                )
+              : SizedBox(),
         ],
       ),
     );

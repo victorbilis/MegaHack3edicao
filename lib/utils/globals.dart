@@ -1,6 +1,8 @@
 library best_flutter_ui_templates.globals;
 
-String token = "";
-String baseUrl = "http://ip172-18-0-44-bs11e6tim9m000ffo8u0-3000.direct.labs.play-with-docker.com";
+import 'package:best_flutter_ui_templates/design_course/models/category.dart';
 
-var selected_book;
+String token = "";
+String baseUrl = "http://brunoeleodoro.com:4000";
+
+Category selected_book;

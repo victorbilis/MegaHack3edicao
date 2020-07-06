@@ -4,6 +4,7 @@ import 'package:best_flutter_ui_templates/design_course/tutorial.dart';
 import 'package:flutter/material.dart';
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:flutter/services.dart';
+import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
 
 class CourseInfoScreen extends StatefulWidget {
   Category category;
@@ -29,6 +30,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
         parent: animationController,
         curve: Interval(0, 1.0, curve: Curves.fastOutSlowIn)));
     setData();
+    globals.selected_book = widget.category;
     super.initState();
   }
 
