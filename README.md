@@ -1,7 +1,7 @@
 <h2 align="center">Raízes do Saber</h2>
 
 <p align="center">
-  <img src="https://readme-maker.herokuapp.com/uploads/0efa90d8ad905b46-logo.png" width="150" heigth="150">
+  <img src="https://readme-maker.herokuapp.com/uploads/0efa90d8ad905b46-logo.png" width="300" heigth="300">
 </p>
 
 <table>
