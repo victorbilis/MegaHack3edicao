@@ -4,6 +4,7 @@ import 'package:best_flutter_ui_templates/book_screen/page.dart';
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:best_flutter_ui_templates/design_course/filtros.dart';
 import 'package:best_flutter_ui_templates/design_course/inicioAtividade.dart';
+import 'package:best_flutter_ui_templates/design_course/tutorial.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_turn/page_turn.dart';
@@ -59,7 +60,7 @@ class _SelectAtionScreenState extends State<SelectAtionScreen> {
           child: GestureDetector(
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => FiltrosScreen()));
+                  MaterialPageRoute(builder: (context) => Tutorial()));
             },
             child: Container(
                 width: 100,

@@ -91,7 +91,7 @@ class _FiltrosScreenState extends State<FiltrosScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Padding(
+     /*   Padding(
           padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
           child: Text(
             'Em alta',
@@ -114,7 +114,7 @@ class _FiltrosScreenState extends State<FiltrosScreen> {
         ),
         const SizedBox(
           height: 16,
-        ),
+        ),*/
         Padding(
           padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
           child: Text(

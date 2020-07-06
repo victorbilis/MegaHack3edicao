@@ -3,6 +3,7 @@ import 'package:best_flutter_ui_templates/design_course/filtros.dart';
 import 'package:best_flutter_ui_templates/design_course/inicioAtividade.dart';
 import 'package:best_flutter_ui_templates/design_course/slides.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Tutorial extends StatefulWidget {
   @override
@@ -30,6 +31,8 @@ class _TutorialState extends State<Tutorial> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     mySLides = getSlides();
     controller = new PageController();
   }
@@ -90,6 +93,10 @@ class _TutorialState extends State<Tutorial> {
                       color: DesignCourseAppTheme.nearlyBlack,
                     ),
                     onTap: () {
+                      SystemChrome.setPreferredOrientations([
+                          DeviceOrientation.landscapeRight,
+                          DeviceOrientation.landscapeLeft
+                        ]);
                       Navigator.pop(context);
                     },
                   ),
@@ -146,8 +153,8 @@ class _TutorialState extends State<Tutorial> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute<dynamic>(
-                     // builder: (BuildContext context) => FiltrosScreen(),
-                     builder: (BuildContext context) => InicioAtividade(),
+                      builder: (BuildContext context) => FiltrosScreen(),
+                     //builder: (BuildContext context) => InicioAtividade(),
                     ),
                   );
                 },

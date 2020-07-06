@@ -153,7 +153,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('4 patos e uma pata', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                      child: Text('Raposinha', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
                     ),
                   ],
                 ),
