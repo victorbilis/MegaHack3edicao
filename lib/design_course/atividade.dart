@@ -3,8 +3,10 @@ import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.
 import 'package:best_flutter_ui_templates/design_course/filtros.dart';
 import 'package:best_flutter_ui_templates/design_course/questions.dart';
 import 'package:best_flutter_ui_templates/design_course/slides.dart';
+import 'package:best_flutter_ui_templates/utils/api_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
 
 class Atividade extends StatefulWidget {
   @override
@@ -28,11 +30,74 @@ class _AtividadeState extends State<Atividade> {
     );
   }
 
+  Future<bool> getAtividades() async {
+    var response =
+        await ApiHelper.getRequest(context, globals.baseUrl + '/activities');
+    var porcentagens = {};
+    porcentagens['0'] = 0.0;
+    porcentagens['1'] = 0.25;
+    porcentagens['2'] = 0.50;
+    porcentagens['3'] = 0.75;
+    porcentagens['4'] = 1;
+    List<QuestionModel> myQuestionsApi = new List();
+    if (response['status'] == 200) {
+      print(response);
+      var i = 0;
+      myQuestions.clear();
+      while (i < response["books"][0]["questions"].length) {
+        myQuestionsApi.add(
+          QuestionModel(
+            imageAssetPath: response["books"][0]["questions"][i]["img"],
+            percent: double.parse(porcentagens[i.toString()].toString()),
+            percentText: (porcentagens[i.toString()] * 100).toString() + "%",
+            question: response["books"][0]["questions"][i]["title"],
+            response1: response["books"][0]["questions"][i]["pages"][0]
+                ['alternative'],
+            response2: response["books"][0]["questions"][i]["pages"][1]
+                ['alternative'],
+            response3: response["books"][0]["questions"][i]["pages"][2]
+                ['alternative'],
+            response4: response["books"][0]["questions"][i]["pages"][3]
+                ['alternative'],
+            // percentText: ,
+            // imagePath: response["books"][i]["thumbnail"],
+            // title: response["books"][i]["title"],
+            // description: response["books"][i]["description"],
+            // lessonCount: 0,
+            // themes: response["books"][i]["themes"],
+            // pages: response["books"][i]["pages"],
+            // money: 0,
+            // rating: response["books"][i]["rating_star"],
+            // rating_content: response["books"][i]["rating_content"],
+          ),
+        );
+        i++;
+      }
+      print('finished');
+      print(myQuestionsApi[1].getPercent().toString());
+      setState(() {
+        myQuestions = myQuestionsApi;
+      });
+    } else {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text("Aviso"),
+              content: Text("Erro"),
+            );
+          });
+    }
+
+    return true;
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    myQuestions = getQuestions();
+    // myQuestions = getQuestions();
+    getAtividades();
     controller = new PageController();
   }
 
@@ -82,7 +147,8 @@ class _AtividadeState extends State<Atividade> {
                           QuestionTile(
                             imageAssetPath: myQuestions[i].getImageAssetPath(),
                             question: myQuestions[i].getQuestion(),
-                            percent: myQuestions[i].getPercent(),
+                            percent: double.parse(
+                                myQuestions[i].getPercent().toString()),
                             percentText: myQuestions[i].getPercentText(),
                             response1: myQuestions[i].getResponse1(),
                             response2: myQuestions[i].getResponse2(),
@@ -183,7 +249,7 @@ class QuestionTile extends StatelessWidget {
                     ),
                   ),
                   Center(
-                    child: Image.asset(imageAssetPath),
+                    child: Image.network(imageAssetPath, width: 150),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

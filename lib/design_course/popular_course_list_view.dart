@@ -105,7 +105,9 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
                         context,
                         MaterialPageRoute<dynamic>(
                           // builder: (BuildContext context) => Tutorial(),
-                          builder: (BuildContext context) => CourseInfoScreen(category: booksList[index],),
+                          builder: (BuildContext context) => CourseInfoScreen(
+                            category: booksList[index],
+                          ),
                         ),
                       );
                     },

@@ -7,6 +7,7 @@ import 'package:best_flutter_ui_templates/design_course/inicioAtividade.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_turn/page_turn.dart';
+import 'package:best_flutter_ui_templates/utils/globals.dart' as globals;
 
 class SelectAtionScreen extends StatefulWidget {
   @override
@@ -40,7 +41,7 @@ class _SelectAtionScreenState extends State<SelectAtionScreen> {
           margin: EdgeInsets.only(top: 10),
           child: Center(
             child: Text(
-              '4 patos e uma pata',
+              globals.selected_book.title,
               style: TextStyle(fontSize: 25),
             ),
           ),
